@@ -1,0 +1,56 @@
+import java.util.concurrent.Semaphore;
+
+public class MyThread extends Thread {
+    Semaphore sem;
+    String threadName;
+    public MyThread(Semaphore sem, String threadName)   {
+        super(threadName);
+        this.sem = sem;
+        this.threadName = threadName;
+    }
+
+    @Override
+    public void run() {
+        // Thread T1 processing
+        System.out.println("Start: " + threadName);
+        if(this.getName().equals("T1"))  {
+            try  {
+                System.out.println(threadName + ":waiting for a permit.");
+                // acquire the permit
+                sem.acquire();
+                System.out.println(threadName + ":Acquired permit");
+                // access shared resource
+                for(int i=0; i < 5; i++)   {
+                    Resource.count++;
+                    System.out.println(threadName + ": " + Resource.count);
+                    Thread.sleep(10);
+                }
+
+            } catch (InterruptedException exc) {
+                System.out.println(exc);
+            }
+            // Release the permit.
+            System.out.println(threadName + ":Released the permit");
+        }
+        // Thread T2 processing
+        else  {
+            try  {
+                System.out.println(threadName + ":waiting for a permit.");
+                // acquire the lock
+                sem.acquire();
+                System.out.println(threadName + ":Acquired permit");
+                // process the shared resource
+                for(int i=0; i < 5; i++)  {
+                    Resource.count--;
+                    System.out.println(threadName + ": " + Resource.count);
+                    Thread.sleep(10);
+                }
+            } catch (InterruptedException exc) {
+                System.out.println(exc);
+            }
+            // Release the permit.
+            System.out.println(threadName + ":Released the permit.");
+        }
+        sem.release();
+    }
+}

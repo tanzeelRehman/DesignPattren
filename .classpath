@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="AbstractFactoryPattern/src"/>
+	<classpathentry kind="src" path="assign1/src"/>
+	<classpathentry kind="src" path="BuilderPattern/src"/>
+	<classpathentry kind="src" path="DecoratorPattern/src"/>
+	<classpathentry kind="src" path="FactoryPattern/src"/>
+	<classpathentry kind="src" path="SingletonFa21/src"/>
+	<classpathentry kind="output" path="AbstractFactoryPattern/out/production/AbstractFactoryPattern"/>
+</classpath>

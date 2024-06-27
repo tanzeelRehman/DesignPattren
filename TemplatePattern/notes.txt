@@ -1,0 +1,19 @@
+//Template Pattern Definition
+Template Pattern is a behavioral design pattern that defines the skeleton of an algorithm in the superclass
+ but leaves some method to be defined in the subclass\
+
+ //Template method ( declared as final)  Override is not allowed
+ calls any of the methods listed above
+ describe the algorithm without implementing the details
+
+ //Abstract method ( declared as abstract)  Override is must
+ no implementations , must be defined in the subclass
+
+ //Concrete method ( declared as final)  Override is not allowed
+ standard complete method useful to subclass
+ usually utility methods
+
+ //Hook method ( declared as normal method with implementations)  Override is optional
+ contain  a default implementation
+ may be overridden in some classes
+ hook method are intended to be overridden,concrete methods are not
